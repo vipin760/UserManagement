@@ -1,16 +1,21 @@
-import { FormGroup } from "@angular/forms";
+import { AbstractControl } from "@angular/forms";
 
-export const PasswordValidators =(password:string,cpassword:string)=>{
-    return (formGroup:FormGroup)=>{
-        let passwordMatch = formGroup.controls[password]
-        let cpasswordMatch = formGroup.controls[cpassword]
-        if(passwordMatch.errors && !passwordMatch.errors['PasswordValidators']) return;
-        if(passwordMatch.value != cpasswordMatch.value){
-            cpasswordMatch.setErrors({PasswordValidators:true})
+export const PasswordMatchValidator = (password:string,cpassword:string)=>{
+    const validator = (form:AbstractControl) =>{
+        const passwordControl = form.get(password)
+        const cpasswordControl = form.get(cpassword)
+
+        if(!passwordControl || !cpasswordControl){
+            return
+        }
+        if(passwordControl.value != cpasswordControl.value){
+            cpasswordControl.setErrors({noMatch:true})
         }else{
-            cpasswordMatch.setErrors(null)
+            const errors = cpasswordControl.errors
+            if(!errors) return
+            delete errors["noMatch"]
+            cpasswordControl.setErrors(errors)
         }
     }
+    return validator
 }
-
-

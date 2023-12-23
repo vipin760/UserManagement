@@ -2,7 +2,7 @@ import mongoose, { connect,ConnectOptions } from "mongoose";
 export const dbConnect = () => {
 
 try {
-    connect(process.env.MONGO_URI!, {
+    connect("mongodb://127.0.0.1:27017/userManagement", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     } as ConnectOptions).then(() => {

@@ -6,9 +6,11 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user.component';
+import { TextInputComponent } from './components/partials/text-input/text-input.component';
+import { InputValidatorComponent } from './components/partials/input-validator/input-validator.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 
 @NgModule({
@@ -17,13 +19,15 @@ import { UserComponent } from './user.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    UserComponent, 
+    UserComponent,
+    TextInputComponent,
+    InputValidatorComponent,
+    LoginComponent, 
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
   ]
 })
 export class UserModule { }

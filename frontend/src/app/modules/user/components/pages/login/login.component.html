@@ -1,0 +1,14 @@
+<div class="lg:w-3/12 shadow-lg flex flex-col mx-auto mt-10 p-10">
+    <h3 class="text-3xl font-semibold text-center">Login</h3>
+    <form class="flex flex-col mt-5" [formGroup]="loginForm" (ngSubmit)="submit()">  
+     <text-input type="email" [control]="this.fc['email']" placeholder="Example@gmail.com" [showErrorWhen]="isSubmitted"></text-input>  
+     <text-input type="text" [control]="this.fc['password']" placeholder="password" [showErrorWhen]="isSubmitted"></text-input>  
+
+        <div class="flex flex-col mt-4 mb-1 text-center">
+          <button type="submit" class="bg-indigo-500 p-2 mt-3 text-white">Register</button>
+        </div>
+    </form>
+    <div class="lg:w-12/12 text-center">
+      <a [routerLink]="['/register']" class="font-blue-600">create a account?</a>
+    </div>
+    </div>

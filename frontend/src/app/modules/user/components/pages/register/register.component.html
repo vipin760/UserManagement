@@ -1,1 +1,103 @@
-<p>register works!</p>
+<div class="lg:w-3/12 shadow-lg flex flex-col mx-auto mt-10 p-10">
+  <h3 class="text-3xl font-semibold text-center">Register</h3>
+  <form class="flex flex-col mt-1" [formGroup]="registerForm" (ngSubmit)="submit()">
+    
+        <text-input type="text" [control]="this.fc['username']" placeholder="user name" [showErrorWhen]="isSubmitted"></text-input>  
+       
+    
+
+        <text-input type="email" [control]="this.fc['email']" placeholder="Example@gmail.com..." [showErrorWhen]="isSubmitted"></text-input>
+       
+      
+
+      <text-input type="tel" [control]="this.fc['phone']" placeholder="Phone" [showErrorWhen]="isSubmitted"></text-input>
+       
+      
+
+      <text-input type="password" [control]="this.fc['password']" placeholder="password" [showErrorWhen]="isSubmitted"></text-input>
+       
+      
+
+      <text-input type="password" [control]="this.fc['cpassword']" placeholder="confirm password" [showErrorWhen]="isSubmitted"></text-input>
+       
+     
+
+      <div class="flex flex-col mt-4 mb-1 text-center">
+        <button type="submit" class="bg-indigo-500 p-2 mt-3 text-white">Register</button>
+      </div>
+  </form>
+  <div class="lg:w-12/12 text-center">
+   <a [routerLink]="['']" class="font-blue-600">already have an account?</a>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="lg:w-3/12 shadow-lg mt-10 p-10 mx-auto">
+    <h3 class="text-3xl text-center font-semibold">Register</h3> 
+    <form class="flex flex-col" [formGroup]="registerForm">
+     <div class="flex flex-col mt-4 mb-1">
+        <input class="p-2 border border-gray-300 rounded" formControlName="username" type="text" placeholder="FirstName" formControlName="username">
+        <span class="text-red-500" *ngIf="registerForm.hasError('required','username')&&registerForm.controls['username'].dirty">*first name is required</span>
+     </div>
+     <div class="flex flex-col mt-4 mb-1">
+        <input class="p-2 border border-gray-300 rounded" formControlName="email" type="email" placeholder="Example@gmail.com" formControlName="email">
+        <span class="text-red-500" *ngIf="registerForm.hasError('required','email')&&registerForm.controls['email'].dirty">*Email is required</span>
+        <span class="text-red-500" *ngIf="registerForm.hasError('email','email')">*Email is invalid</span>
+     </div>
+     <div class="flex flex-col mt-4 mb-1">
+        <input class="p-2 border border-gray-300 rounded" formControlName="phone" type="tel" placeholder="Phone">
+        <span class="text-red-500" *ngIf="registerForm.hasError('required','phone')&&registerForm.controls['phone'].dirty">*Phone is required</span>
+     </div>
+     <div class="flex flex-col mt-4 mb-1">
+        <input class="p-2 border border-gray-300 rounded" formControlName="password" type="password" placeholder="Password">
+        <span class="text-red-500" *ngIf="registerForm.hasError('required','password')&&registerForm.controls['password'].dirty">*password is required</span>
+     </div>
+     <div class="flex flex-col mt-4 mb-1">
+        <input class="p-2 border border-gray-300 rounded" formControlName="cpassword" type="password" placeholder="Confirm Password">
+        <span class="text-red-500" *ngIf="registerForm.hasError('required','cpassword')&&registerForm.controls['cpassword'].dirty" >*confirm password is required</span>
+        <span class="text-red-500" *ngIf="registerForm.hasError('confirmPasswordValidators','cpassword')">*password shoul be match</span>
+     </div>
+     <button (click)="submit()" [disabled]="registerForm.invalid" [class.disabled]="registerForm.invalid" class="bg-indigo-500 p-2 rounded mt-3 text-white">submit</button>
+    </form> 
+    <div class="flex justify-center mt-5">
+        <span>Already have account?</span><a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="text-indigo-600 ml-2 cursor-pointer">Login Here</a>
+    </div>
+    </div> -->

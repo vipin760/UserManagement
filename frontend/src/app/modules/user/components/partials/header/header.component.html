@@ -1,1 +1,10 @@
-<p>header works!</p>
+<div class="lg:w-12/12 flex bg-slate-800 text-white h-8 p-4 space-between items-center">
+<div class="lg:w-6/12">HOME</div>
+<div class="lg:w-6/12 items-end" *ngIf="token">
+    <a href="" (click)="logOut()">logout</a>
+</div>
+<div class="lg:w-6/12 flex mx-end" *ngIf="!token">
+    <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+</div>
+{{token}}
+</div>

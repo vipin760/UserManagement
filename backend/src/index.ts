@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express"
 import dotenv from "dotenv"
+dotenv.config()
 import { dbConnect } from "./config/config"
 import cors from "cors"
 import user_router from "./router/user.router"
-dotenv.config()
-const app = express()
+const app = express() 
 dbConnect()
 app.use(
   cors({
@@ -14,7 +14,7 @@ app.use(
 )
 app.use(express.json())
 
-app.use("/",user_router)
+app.use("/api/user",user_router)
 
 app.listen(3000,()=>{
   console.log("connected.....")
