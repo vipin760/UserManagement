@@ -7,6 +7,8 @@ export interface IUser{
     password:string
     isBlocked:boolean;
     approved:boolean;
+    isVerified:boolean;
+    emailToken:string;
 }
 export interface IReg_response{
     message:string;

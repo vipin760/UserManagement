@@ -11,15 +11,11 @@ export class UserGuard implements CanActivate {
   constructor(private router:Router){} 
 canActivate():boolean{
   const token = localStorage.getItem('User')
-  console.log(token)
   if(token){
-    console.log("true")
     return true;
   }else{
-    console.log("false")
     this.router.navigate(["/"])
     return false
   }
-
 }
 };

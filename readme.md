@@ -22,7 +22,7 @@
         2. approve
         3. block
 3. users
-    1. register with emailverification
-    2. login
-    3. home screen "welcome"
-    4. logout
+-    1. register with emailverification 
+-    2. login 
+-    3. home screen "welcome"
+-    4. logout

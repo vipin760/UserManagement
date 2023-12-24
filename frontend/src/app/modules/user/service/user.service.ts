@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { USER_URI } from 'src/app/shared/constants/urls';
@@ -15,7 +16,8 @@ export class UserService implements OnChanges {
 
   constructor(
     private http:HttpClient,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private router:Router
   ) { 
     console.log("this.userObservable1",this.userObservable)
     this.userObservable = this.userSubject.asObservable()
@@ -73,7 +75,17 @@ userLogout(){
 }
 /////////////////////////////////////////////////////////////////////////////////////
 fetchUser():Observable<IFetchUser>{
- return this.http.get<IFetchUser>(`${USER_URI}/fetch-user`)
+ return this.http.get<IFetchUser>(`${USER_URI}/fetch-user`).pipe(
+  tap({
+    next:()=>{
+
+    },
+    error:(error)=>{
+      this.toastrService.error(`${error.error.message}`,"Failed")
+      this.router.navigate(["/"])
+    }
+  })
+ )
 }
 
 /////////////////////////////////////////////////////////////////////////////////////

@@ -8,6 +8,8 @@ const userSchema =new Schema<IUser>({
     password:{ type:String, required:true},
     isBlocked:{type:Boolean, default:false},
     approved:{ type:Boolean, default:false},
+    isVerified:{ type:Boolean, default:false},
+    emailToken: { type:String }
 
 })
 export const UserModel = model<IUser>("user",userSchema)
